@@ -1,0 +1,9 @@
+type Car {
+  id: ID! @unique
+  model: String! @unique
+  year: Int
+  make: String!
+  hp: Int
+  pass: Int
+  vin: String! @unique
+}

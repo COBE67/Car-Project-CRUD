@@ -49,14 +49,14 @@ export default class extends Component {
 {/**/}
 {/* createCar Input fields eventHandler */}
 {/**/}
-                <input type="number" placeholder="Year" onChange={event => this.setState({year : parseInt(event.target.value)})}/>
+                <input type="number" placeholder="Year" onChange={event => this.setState({year : parseInt(event.target.value,10)})}/>
                 <input type="text" placeholder="Make" onChange={event => this.setState({make : event.target.value})}/>
                 <input type="text" placeholder="Model" onChange={event => this.setState({model : event.target.value})}/>
                 <br/>
-                <input type="number" placeholder="HP" onChange={event => this.setState({hp : parseInt(event.target.value)})}/>
-                <input type="number" placeholder="Pass" onChange={event => this.setState({pass : parseInt(event.target.value)})}/>
+                <input type="number" placeholder="HP" onChange={event => this.setState({hp : parseInt(event.target.value,10)})}/>
+                <input type="number" placeholder="Pass" onChange={event => this.setState({pass : parseInt(event.target.value,10)})}/>
                 <input type="text" placeholder="VIN" onChange={event => this.setState({vin : event.target.value})}/>
-                <input type="submit" />
+                <input type="submit"/>
             </form>
           </div>
         )}

@@ -1,13 +1,13 @@
 import React from 'react';
-import {render} from 'react-dom';
+import ReactDOM from 'react-dom';
 import ApolloClient from 'apollo-boost';
+import {ApolloProvider, Query} from 'react-apollo';
 import gql from "graphql-tag";
-import {ApolloProvider, Query} from "react-apollo";
 // import App from './app'
 
 import DeleteCar from './DeleteCar'
 import CarCreate from './CarCreate'
-
+import UpdateCar from './UpdateCar'
 
 const client = new ApolloClient({
    uri: `https://us1.prisma.sh/corey-bernsdorff/api-practice/dev`
@@ -34,10 +34,21 @@ const Cars = () => (
          return data.cars.map(({id, model, year, make, hp, pass, vin}) => (
             <div key={id}>
                <p>{`${year} ${make} ${model}`}</p>
-               <p>{`${hp} HP ${pass}_Pass VIN# "${vin}"`}</p>
-               <p>{`${id}`}</p>
+               <p>{`${hp} HP`}</p>
+               <p>{`${pass}_Pass`}</p>
+               <p>{`VIN# "${vin}"`}</p>
                <DeleteCar id={id}/>
+               <UpdateCar
+                  id={id}
+                  year={year}
+                  make={make}
+                  model={model}
+                  hp={hp}
+                  pass={pass}
+                  vin={vin}
+               />
                <br/>
+               <hr/>
             </div>
          ));
       }}
@@ -57,5 +68,5 @@ const App = () => (
    </ApolloProvider>
 );
 
-render(<App/>, document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('root'));
 

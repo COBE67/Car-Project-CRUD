@@ -5,21 +5,3 @@
 // import DeleteCar from './DeleteCar'
 // import UpdateCar from './UpdateCar'
 //
-// export default class extends Component {
-//     viewCars = gql`
-//         {
-//             cars {
-//                 id
-//                 model
-//                 year
-//                 make
-//                 hp
-//                 pass
-//                 vin
-//             }
-//         }
-//     `
-//     render () {
-//
-//     }
-// }

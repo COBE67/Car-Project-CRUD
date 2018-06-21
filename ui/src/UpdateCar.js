@@ -70,9 +70,6 @@ export default class extends Component {
                }}>
                   {this.state.isUpdating ? update : null }
                   <input type="submit" value={this.state.buttonText}/>
-                  <input type="submit" placeholder="Cancel" value={null}/>
-                  {/*{this.state.isUpdating ? !update : null }*/}
-                  {/*<input type="cancel" value={this.state.buttonText}*/}
                </form>
             )}
          </Mutation>

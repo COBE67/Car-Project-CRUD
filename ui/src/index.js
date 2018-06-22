@@ -6,7 +6,10 @@ import {ApolloProvider } from 'react-apollo';
 
 import CarCreate from './CarCreate'
 import Car from './Car'
-import PermDrawer from './PermDrawer'
+import PersistantDrawer from './PersistantDrawer'
+import SimpleMenu from './SimpleMenu';
+import SimpleModal from './SimpleModal'
+
 
 const client = new ApolloClient({
    uri: `https://us1.prisma.sh/corey-bernsdorff/api-practice/dev`
@@ -15,7 +18,12 @@ const client = new ApolloClient({
 const App = () => (
    <ApolloProvider client={client}>
       <div>
-         <PermDrawer/>
+         <PersistantDrawer/>
+         <hr/>
+         <SimpleMenu/>
+         <hr/>
+         <SimpleModal/>
+         <hr/>
          Create a new car
          <CarCreate/>
          <hr/>

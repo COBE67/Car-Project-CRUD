@@ -5,24 +5,30 @@ import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-// import MenuItem from '@material-ui/core/MenuItem';
+import { List, ListItem } from '@material-ui/core';
+import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
-// import TextField from '@material-ui/core/TextField';
+import TextField from '@material-ui/core/TextField';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+// import { ListItem, from '@material-ui/core'
+// import { mailFolderListItems, otherMailFolderListItems } from './tileData';
 
-const drawerWidth = 240;
+import CarCreate from './CarCreate';
+import UpdateCar from "./UpdateCar";
+
+
+const drawerWidth = 150;
 
 const styles = theme => ({
    root: {
       flexGrow: 1,
    },
    appFrame: {
-      height: 430,
+      height: 200,
       zIndex: 1,
       overflow: 'hidden',
       position: 'relative',
@@ -135,9 +141,17 @@ class PersistentDrawer extends React.Component {
                </IconButton>
             </div>
             <Divider />
-            <List>Create a Car</List>
+            <List>
+               <ListItem button>
+                  {CarCreate}Create a Car
+               </ListItem>
+            </List>
             <Divider />
-            <List>Update a Car</List>
+            <List>
+               <ListItem button>
+                  {UpdateCar}View Cars
+               </ListItem>
+            </List>
          </Drawer>
       );
       
@@ -152,17 +166,17 @@ class PersistentDrawer extends React.Component {
       
       return (
          <div className={classes.root}>
-            {/*<TextField*/}
-               {/*id="persistent-anchor"*/}
-               {/*select*/}
-               {/*label="Anchor"*/}
-               {/*value={anchor}*/}
-               {/*onChange={this.handleChangeAnchor}*/}
-               {/*margin="normal"*/}
-            {/*>*/}
-               {/*<MenuItem value="left">left</MenuItem>*/}
-               {/*<MenuItem value="right">right</MenuItem>*/}
-            {/*</TextField>*/}
+            <TextField
+               id="persistent-anchor"
+               select
+               label="Anchor"
+               value={anchor}
+               onChange={this.handleChangeAnchor}
+               margin="normal"
+            >
+               <MenuItem value="left">left</MenuItem>
+               <MenuItem value="right">right</MenuItem>
+            </TextField>
             <div className={classes.appFrame}>
                <AppBar
                   className={classNames(classes.appBar, {
@@ -180,7 +194,7 @@ class PersistentDrawer extends React.Component {
                         <MenuIcon />
                      </IconButton>
                      <Typography variant="title" color="inherit" noWrap>
-                        Corey's Apollo Car App
+                        Persistent drawer
                      </Typography>
                   </Toolbar>
                </AppBar>
@@ -192,6 +206,7 @@ class PersistentDrawer extends React.Component {
                   })}
                >
                   <div className={classes.drawerHeader} />
+                  <Typography>{'You think water moves fast? You should see ice.'}</Typography>
                </main>
                {after}
             </div>
